@@ -1,56 +1,85 @@
-/* this file is loaded by index.html and styles the page */
-
-* {
-  box-sizing: border-box;
+body {
+    margin: auto;
+    max-width: 1000px;
+    background-color: #ddd;
 }
 
-body {
-  font-family: sans-serif;
-  margin: 2em 1em;
-  line-height: 1.5em;
+#board {
+  padding: 5px;
+	position:relative;
+	margin:1 auto 2em 0;
+	width:40%;
+	height:400px;
+  background-color: #25567B;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#board2 {
+  padding: 5px;
+	position:relative;
+	margin-left:30px;
+	width:40%;
+	height:400px;
+  background-color: #25567B;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#tableaux div{
+  display:inline-block;
+}
+
+#board div, #board2 div {
+	position:absolute;   
+	box-sizing: border-box;/*les délimitation sont plus agréables à l'oeil*/    
+	background: #f6f8f9;
+	border: 1px solid #ddd;
+	width:40px;
+	height:40px;
+}
+
+#board td, #board2 td {
+	box-sizing: border-box;/*les délimitation sont plus agréables à l'oeil*/    
+	background: #99C2E1;
+	border: 1px solid #ddd;
+	width:10vh;
+}
+
+#board td:after, #board2 td:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+#board td.manque, #board2 td.manque {
+  background: lightgrey;
+}
+
+#board td.touche, #board2 td.touche {
+  background: red;
+}
+
+#board td.coule, #board2 td.coule {
+  background: black;
 }
 
 h1 {
-  font-style: italic;
-  color: #373fff;
-  max-width: calc(100% - 5rem);
-  line-height: 1.1;
+    font-size: 50px;
 }
 
-form {
-  background-color: #eee;
-  display: grid;
-  grid-gap: 1em;
-  padding: 1em;
-  max-width: 40ch;
+p {
+    font-size: 30px;
+    line-height: 25px;
+    margin-bottom:1em;
 }
 
-input {
-  border: 1px solid silver;
-  display: block;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-}
-
-form button {
-  background-color: #bbbbf2;
-  border: 2px solid currentColor;
-  border-radius: .25em;
-  cursor: pointer;
-  font-size: inherit;
-  line-height: 1.4em;
-  padding: 0.25em 1em;
-  max-width: 20ch;
-}
-
-form button:hover {
-  background-color: lavender;
-}
-
-footer {
-  margin-top: 3em;
+/*.table{
+  display:inline-block;
+  vertical-align:top;
+}*/
   padding-top: 1.5em;
   border-top: 1px solid lightgrey;
 }
