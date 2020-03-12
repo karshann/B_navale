@@ -90,28 +90,19 @@ var nombreDeCoups2 = 0;
 // 3 = bateau coulé, une fois que la totalité du bateau touchée
 
 // POUR L'INSTANT JE LE FAIS MANUELLEMENT MAIS VA FALLOIR FAIRE UNE FONCTION POUR LES PLACER ALEATOIREMENT PLUS TARD!!!!
-/////////////////////////////////////////////////////////////////////
 
-
-///////////////////////////////////////////////////////////////////////////////
 var table = [
+  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 0, 1, 0, 1, 1, 0],
+  [1, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+  [1, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 1, 1, 1, 1, 1, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, 0]
 ];
-
-for(let i=0;i<20;i++)
-placeCeBateau();
-
-
-
 
 var table2 = [
   [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -261,50 +252,3 @@ function tirer2(e) {
 
   // si jamai on aura un problème par la suite on pourra essayé de stoper la propagation de cet évènement avec e.stopPropagation()
 }
-
-
-function getRandom(max) {
-    return Math.floor(Math.random() * max);
-}
-
-function HorizontalOuVerticale() {
-    return Math.floor(Math.random() * 2);
-}
-
-function placeCeBateau(j) {
-    let nbCasesTotales = table[0].length;
-
-    let x1 = getRandom(nbCasesTotales);
-    let y1 = getRandom(nbCasesTotales);
-    
-    let direction=0;//HorizontalOuVerticale();
-  
-    let k=0; 
-    let b=1;
-  
-    while(k<0)
-      {
-        if(direction=0)//horizontale
-          {
-            if(y1<=10-j) 
-            {
-              for(let i=0;i<j;i++)
-                {
-                  if(table[x1][y1] ==0)
-                    b=0;
-                }
-              
-              for(let i=0;i<j;i++)
-                {
-                  if(table[x1][y1] ==0)
-                    b=0;
-                }
-            }
-              
-          }    
-      }
-    
-}
-
-if(table[x1][y1] ==0)
-table[x1][y1] = 1;
