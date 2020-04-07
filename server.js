@@ -24,7 +24,7 @@ app.get("/insc", (request, response) => {
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
-
+var conn = require("./connexion_db.js");
 function getMysqlConnection(){
     var con = mysql.createConnection(dbjson);
     con.connect();
