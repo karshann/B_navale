@@ -24,7 +24,7 @@ app.get("/insc", (request, response) => {
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
-var conn = require("./public/connexion_db.js");
+var db = require("./public/connexion_db.js");
 function getMysqlConnection(){
     var con = mysql.createConnection(dbjson);
     con.connect();
@@ -36,7 +36,9 @@ function getMysqlConnection(){
     return con;
 }
 //route pour ajouet un joueur heroku git:remote -a shielded-woodland-11773
+var conn=db.getConnexionDb();
 app.post('/save',(req, res) => {
+    
   let data = {email: req.body.email, username: req.body.username, fullname: req.body.fullname,password: req.body.password};
   let sql = "INSERT INTO joueurs SET ?";
   let query = conn.query(sql, data,(err, results) => {
