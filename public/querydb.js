@@ -14,4 +14,5 @@ var sqli = "Insert into joueurs (id, email, username,fullname,password) " //
 conn.query(sqli, function(err, results) {
     if (err) throw err;
     console.log("insertion reussit!!!");
+    res.redirect('/');
 });
