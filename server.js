@@ -4,10 +4,12 @@
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express");
+const bodyParser = require('body-parser');
 const app = express();
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // https://expressjs.com/en/starter/basic-routing.html
@@ -18,6 +20,7 @@ app.get("/", (request, response) => {
 app.get("/insc", (request, response) => {
   response.sendFile(__dirname + "/views/inscreption.html");
 });
+//
 
 
 // listen for requests :)
