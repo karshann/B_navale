@@ -1,33 +1,48 @@
-<form action="/save" method="post">
-        <div class="modal fade" id="myModalAdd" tabindex="-1"  aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-           <div class="modal-content">
-             <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Inscription</h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-               </button>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Première version de bataille navale</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  
+  
+  <body>
+    <div class="form-style-10">
+    <h1>Sign Up Now!<span>Sign up and tell us what you think of the site!</span></h1>
+    <form action="/save" method="post" >
+            <div class="section"><span>1</span>First Name & Address</div>
+             <div class="inner-wrap">
+                   
+                      <label>Your Full Name <input type="text" name="fullname" class="form-control" placeholder="Full Name" required> </label>
+                   </div>
+                   <div class="section"><span>1</span>First Name & Address</div>
+             <div class="inner-wrap">
+                   
+                      <label>Your username
+                       <input type="text" name="username" class="form-control" placeholder="username" required></label>
+                   </div>
+                   <div class="section"><span>1</span>First Name & Address</div>
+             <div class="inner-wrap">
+                   
+                      <label>Your mail
+                       <input type="email" name="email" class="form-control" placeholder="Email" required></label>
+                   </div>
+                    <div class="section"><span>3</span>Passwords</div>
+                        <div class="inner-wrap">
+                        <label>Password <input type="password" name="password" required/></label>
+                        <label>Confirm Password <input type="password" name="password2" required/></label>
+                    </div>
+                 </div>
+                 <div class="button-section">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                   <button type="submit" class="btn btn-primary">S'inscrire</button>
+                 </div>
+               </div>
              </div>
-             <div class="modal-body">
-               <div class="form-group">
-                   <input type="text" name="fullname" class="form-control" placeholder="Full Name" required>
-               </div>
-
-               <div class="form-group">
-                   <input type="text" name="username" class="form-control" placeholder="username" required>
-               </div>
-               <div class="form-group">
-                   <input type="email" name="email" class="form-control" placeholder="Email" required>
-               </div>
-               <div class="form-group">
-                   <input type="password" name="password" class="form-control" placeholder="Password" required>
-               </div>
-             </div>
-             <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-               <button type="submit" class="btn btn-primary">S'inscrire</button>
-             </div>
-           </div>
-         </div>
-        </div>
-   </form>
+            </div>
+       </form>
+     </div>
+    </body>
+  
+</html>
