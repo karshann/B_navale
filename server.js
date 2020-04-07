@@ -39,12 +39,12 @@ function getMysqlConnection(){
 var conn=db.getConnexionDb();
 app.post('/save',(req, res) => {
     alert(req);
-  let data = {email: req.body.email, username: req.body.username, fullname: req.body.fullname,password: req.body.password};
+  /*let data = {email: req.body.email, username: req.body.username, fullname: req.body.fullname,password: req.body.password};
   let sql = "INSERT INTO joueurs SET ?";
   let query = conn.query(sql, data,(err, results) => {
     if(err) throw err;
     res.redirect('/');
-  });
+  });*/
 });
 //route pour modifier une jouer
 app.post('/update',(req, res) => {
