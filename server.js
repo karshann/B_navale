@@ -49,6 +49,46 @@ app.post('/save',(req, res) => {
     res.redirect('/');
   });
 });
+//login
+app.post('/login',(req, res){
+   var message = '';
+   var sess = req.session; 
+ 
+   if(req.method == "POST"){
+      var post  = req.body;
+      var email= post.email;
+      var pass= post.password;
+     
+      var sql="SELECT id, email, usernmae, user_name FROM `joueurs` WHERE `email`='"+email+"' and password = '"+pass+"'";                           
+      db.query(sql, function(err, results){      
+         if(results.length){
+            req.session.userId = results[0].id;
+            req.session.user = results[0];
+            console.log(results[0].id);
+            res.redirect('/');
+         }
+         else{
+            message = 'Wrong Credentials.';
+            res.render('login.js',{message: message});
+         }
+                 
+      });
+   } else {
+      res.render('login.js',{message: message});
+   }         
+};
+//la liste des joueurs en ligne
+
+//route for homepage
+app.get('/joueurs',(req, res) => {
+  let sql = "SELECT * FROM joueurs";
+  let query = conn.query(sql, (err, results) => {
+    if(err) throw err;
+    res.render('joueurs',{
+      results: results
+    });
+  });
+});
 //route pour modifier une jouer
 app.post('/update',(req, res) => {
   let sql = "UPDATE joueurs SET fullname='"+req.body.fullname+"', password='"+req.body.password+"' WHERE product_id="+req.body.id;
