@@ -1,7 +1,6 @@
 
 <div class="container">
-    <h2>Product List</h2>
-		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
+    <h2>Joueurs List</h2>
     <table class="table table-striped" id="mytable">
       <thead>
         <tr>
@@ -12,15 +11,15 @@
         </tr>
       </thead>
       <tbody>
-         {{#each results}}
-        <tr>
-          <td>{{ id }}</td>
-          <td>{{ fullname }}</td>
-          <td>{{ email }}</td>
-          <td>{{ username }}</td>
-          
-        </tr>
-        {{/each}}
+         <% results.forEach(function(res){ %>
+            <tr>
+                <td><%= res.id %></td>
+                <td><%= res.fullname %></td>
+                <td><%= res.email %></td>
+                <td><%= res.username %></td>
+                
+            </tr>
+        <% }); %>
       </tbody>
     </table>
   </div>
