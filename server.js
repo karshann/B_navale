@@ -20,15 +20,18 @@ const ejs = require('ejs');
 app.set('view engine', 'ejs')
 // https://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/bataille.ejs");
+  response.sendFile(__dirname + "/views/bataille.html");
 });
 // afficher la page d'inscription
-app.get("/insc", (request, response) => {
-  response.sendFile(__dirname + "/views/inscreption.ejs");
+app.get("/insc", (req, res) => {
+    // res.send('CRUD Operation using NodeJS / ExpressJS / MySQL');
+
+        res.render('inscription');
+    });
 });
 // afficher la page d'authentification
 app.get("/login", (request, response) => {
-  response.sendFile(__dirname + "/views/login.ejs");
+  response.sendFile(__dirname + "/views/login.html");
 });
 //
 
