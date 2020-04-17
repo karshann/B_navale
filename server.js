@@ -23,11 +23,9 @@ app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/bataille.html");
 });
 // afficher la page d'inscription
-app.get("/insc", (req, res) => {
-    // res.send('CRUD Operation using NodeJS / ExpressJS / MySQL');
 
-        res.render('inscription');
-    });
+app.get("/insc", (request, response) => {
+  response.sendFile(__dirname + "/views/bataille.html");
 });
 // afficher la page d'authentification
 app.get("/login", (request, response) => {
