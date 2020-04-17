@@ -1,0 +1,26 @@
+
+<div class="container">
+    <h2>Product List</h2>
+		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
+    <table class="table table-striped" id="mytable">
+      <thead>
+        <tr>
+          <th>Joeurs ID</th>
+          <th>Joeur Name</th>
+          <th>Email</th>
+          <th>username</th>
+        </tr>
+      </thead>
+      <tbody>
+         {{#each results}}
+        <tr>
+          <td>{{ id }}</td>
+          <td>{{ fullname }}</td>
+          <td>{{ email }}</td>
+          <td>{{ username }}</td>
+          
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>

@@ -80,7 +80,6 @@ app.post('/auth', function(request, response) {
 });
 //la liste des joueurs en ligne
 
-//route for homepage
 app.get('/joueurs',(req, res) => {
   let sql = "SELECT * FROM joueurs";
   let query = conn.query(sql, (err, results) => {
