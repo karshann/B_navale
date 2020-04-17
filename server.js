@@ -67,7 +67,7 @@ app.post('/auth', function(request, response) {
             if (results.length > 0) {
                 request.session.loggedin = true;
                 request.session.username = username;
-                response.redirect('/home');
+                response.redirect('/joueurs');
             } else {
                 response.send('Le nom d\'utilisateur! ou/et le mots de passe incorrect(s)');
             }           
