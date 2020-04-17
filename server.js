@@ -16,8 +16,8 @@ app.use(session({
 // https://expressjs.com/en/starter/static-files.html
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+const ejs = require('ejs');
+app.set('view engine', 'ejs')
 // https://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/bataille.html");
