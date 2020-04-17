@@ -6,7 +6,11 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
-
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,9 +20,13 @@ app.use(express.static("public"));
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/bataille.html");
 });
-// 
+// afficher la page d'inscription
 app.get("/insc", (request, response) => {
   response.sendFile(__dirname + "/views/inscreption.html");
+});
+// afficher la page d'authentification
+app.get("/login", (request, response) => {
+  response.sendFile(__dirname + "/views/login.html");
 });
 //
 
@@ -50,33 +58,25 @@ app.post('/save',(req, res) => {
   });
 });
 //login
-app.post('/login',(req, res){
-   var message = '';
-   var sess = req.session; 
- 
-   if(req.method == "POST"){
-      var post  = req.body;
-      var email= post.email;
-      var pass= post.password;
-     
-      var sql="SELECT id, email, usernmae, user_name FROM `joueurs` WHERE `email`='"+email+"' and password = '"+pass+"'";                           
-      db.query(sql, function(err, results){      
-         if(results.length){
-            req.session.userId = results[0].id;
-            req.session.user = results[0];
-            console.log(results[0].id);
-            res.redirect('/');
-         }
-         else{
-            message = 'Wrong Credentials.';
-            res.render('login.js',{message: message});
-         }
-                 
-      });
-   } else {
-      res.render('login.js',{message: message});
-   }         
-};
+app.post('/auth', function(request, response) {
+    var username = request.body.username;
+    var password = request.body.password;
+    if (username && password) {
+        connection.query('SELECT * FROM joueurs WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
+            if (results.length > 0) {
+                request.session.loggedin = true;
+                request.session.username = username;
+                response.redirect('/home');
+            } else {
+                response.send('Le nom d\'utilisateur! ou/et le mots de passe incorrect(s)');
+            }           
+            response.end();
+        });
+    } else {
+        response.send('Veuillez ajouter votre nom d\'utilisateur et votre mots de passe !');
+        response.end();
+    }
+});
 //la liste des joueurs en ligne
 
 //route for homepage
